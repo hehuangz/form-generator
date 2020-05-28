@@ -2,6 +2,7 @@
 <template>
   <div class="container">
     <div class="left-board">
+      <!-- logo -->
       <div class="logo-wrapper">
         <div class="logo">
           <img :src="logo" alt="logo"> Form Generator
@@ -10,6 +11,7 @@
           </a>
         </div>
       </div>
+      <!-- 组件栏 -->
       <el-scrollbar class="left-scrollbar">
         <div class="components-list">
           <div v-for="(item, listIndex) in leftComponents" :key="listIndex">
@@ -42,7 +44,7 @@
         </div>
       </el-scrollbar>
     </div>
-
+    <!-- 中间面板 -->
     <div class="center-board">
       <div class="action-bar">
         <el-button icon="el-icon-video-play" type="text" @click="run">
@@ -91,6 +93,7 @@
       </el-scrollbar>
     </div>
 
+    <!-- 右侧面板 -->
     <right-panel
       :active-data="activeData"
       :form-conf="formConf"
@@ -98,12 +101,14 @@
       @tag-change="tagChange"
     />
 
+    <!-- 代码 -->
     <form-drawer
       :visible.sync="drawerVisible"
       :form-data="formData"
       size="100%"
       :generate-conf="generateConf"
     />
+
     <json-drawer
       size="60%"
       :visible.sync="jsonDrawerVisible"
@@ -425,5 +430,5 @@ export default {
 </script>
 
 <style lang='scss'>
-@import '@/styles/home';
+@import "@/styles/home";
 </style>
